@@ -5,7 +5,7 @@
             <div class="container p-0">
                 <div class="row">
                     <div class="title-container col-12">
-                        <h1><?php echo sprintf( __( '%s Search Results for ', 'PROYECTO' ), $wp_query->found_posts ); echo esc_attr(get_search_query()); ?></h1>
+                        <h1><?php echo sprintf( __( '%s Search Results for ', 'pahoy' ), $wp_query->found_posts ); echo esc_attr(get_search_query()); ?></h1>
                     </div>
                     <?php if (have_posts()) : ?>
                     <section class="col-9">
@@ -31,10 +31,10 @@
                                                 <h2 rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></h2>
                                             </a>
                                             <time class="date" datetime="<?php echo get_the_time('Y-m-d') ?>" itemprop="datePublished"><?php the_time('d-m-Y'); ?></time>
-                                            <span class="author" itemprop="author" itemscope itemptype="http://schema.org/Person"><?php _e('Publicado por:', 'PROYECTO'); ?> <?php the_author_posts_link(); ?></span>
+                                            <span class="author" itemprop="author" itemscope itemptype="http://schema.org/Person"><?php _e('Publicado por:', 'pahoy'); ?> <?php the_author_posts_link(); ?></span>
                                         </header>
                                         <p><?php the_excerpt(); ?></p>
-                                        <a href="<?php the_permalink(); ?>" title="<?php _e('Leer Más', 'PROYECTO'); ?>" class="btn btn-md btn-dark"><?php _e('Leer Más', 'PROYECTO'); ?></a>
+                                        <a href="<?php the_permalink(); ?>" title="<?php _e('Leer Más', 'pahoy'); ?>" class="btn btn-md btn-dark"><?php _e('Leer Más', 'pahoy'); ?></a>
                                     </div>
                                 </div>
                             </div>
@@ -49,8 +49,8 @@
                     </aside>
                     <?php else: ?>
                     <section>
-                        <h2><?php _e('Disculpe, su busqueda no arrojo ningun resultado', 'PROYECTO'); ?></h2>
-                        <h3><?php _e('Dirígete nuevamente al', 'PROYECTO'); ?> <a href="<?php echo home_url('/'); ?>" title="<?php _e('Volver al Inicio', 'PROYECTO'); ?>"><?php _e('inicio', 'PROYECTO'); ?></a>.</h3>
+                        <h2><?php _e('Disculpe, su busqueda no arrojo ningun resultado', 'pahoy'); ?></h2>
+                        <h3><?php _e('Dirígete nuevamente al', 'pahoy'); ?> <a href="<?php echo home_url('/'); ?>" title="<?php _e('Volver al Inicio', 'pahoy'); ?>"><?php _e('inicio', 'pahoy'); ?></a>.</h3>
                     </section>
                     <?php endif; ?>
                 </div>

@@ -10,8 +10,8 @@ require_once('includes/wp_enqueue_styles.php');
     ENQUEUE AND REGISTER JS
 -------------------------------------------------------------- */
 
-if (!is_admin()) add_action('wp_enqueue_scripts', 'PROYECTO_jquery_enqueue');
-function PROYECTO_jquery_enqueue() {
+if (!is_admin()) add_action('wp_enqueue_scripts', 'pahoy_jquery_enqueue');
+function pahoy_jquery_enqueue() {
     wp_deregister_script('jquery');
     wp_deregister_script('jquery-migrate');
     if ($_SERVER['REMOTE_ADDR'] == '::1') {
@@ -70,7 +70,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
     ADD THEME SUPPORT
 -------------------------------------------------------------- */
 
-load_theme_textdomain( 'PROYECTO', get_template_directory() . '/languages' );
+load_theme_textdomain( 'pahoy', get_template_directory() . '/languages' );
 add_theme_support( 'post-formats', array( 'aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio' ));
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'automatic-feed-links' );
@@ -107,20 +107,20 @@ add_theme_support( 'html5', array(
 -------------------------------------------------------------- */
 
 register_nav_menus( array(
-    'header_menu' => __( 'Menu Header - Principal', 'PROYECTO' ),
-    'footer_menu' => __( 'Menu Footer - Principal', 'PROYECTO' ),
+    'header_menu' => __( 'Menu Header - Principal', 'pahoy' ),
+    'footer_menu' => __( 'Menu Footer - Principal', 'pahoy' ),
 ) );
 
 /* --------------------------------------------------------------
     ADD DYNAMIC SIDEBAR SUPPORT
 -------------------------------------------------------------- */
 
-add_action( 'widgets_init', 'PROYECTO_widgets_init' );
-function PROYECTO_widgets_init() {
+add_action( 'widgets_init', 'pahoy_widgets_init' );
+function pahoy_widgets_init() {
     register_sidebar( array(
-        'name' => __( 'Sidebar Principal', 'PROYECTO' ),
+        'name' => __( 'Sidebar Principal', 'pahoy' ),
         'id' => 'main_sidebar',
-        'description' => __( 'Estos widgets seran vistos en las entradas y páginas del sitio', 'PROYECTO' ),
+        'description' => __( 'Estos widgets seran vistos en las entradas y páginas del sitio', 'pahoy' ),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget'  => '</li>',
         'before_title'  => '<h2 class="widgettitle">',
@@ -128,9 +128,9 @@ function PROYECTO_widgets_init() {
     ) );
 
     //    register_sidebar( array(
-    //        'name' => __( 'Shop Sidebar', 'PROYECTO' ),
+    //        'name' => __( 'Shop Sidebar', 'pahoy' ),
     //        'id' => 'shop_sidebar',
-    //        'description' => __( 'Estos widgets seran vistos en Tienda y Categorias de Producto', 'PROYECTO' ),
+    //        'description' => __( 'Estos widgets seran vistos en Tienda y Categorias de Producto', 'pahoy' ),
     //        'before_widget' => '<li id='%1$s' class='widget %2$s'>',
     //        'after_widget'  => '</li>',
     //        'before_title'  => '<h2 class='widgettitle'>',
@@ -142,23 +142,23 @@ function PROYECTO_widgets_init() {
     CUSTOM ADMIN LOGIN
 -------------------------------------------------------------- */
 
-function PROYECTO_custom_admin_styles() {
+function pahoy_custom_admin_styles() {
     $version_remove = NULL;
     wp_register_style('wp-admin-style', get_template_directory_uri() . '/css/custom-wordpress-admin-style.css', false, $version_remove, 'all');
     wp_enqueue_style('wp-admin-style');
 }
-add_action('login_head', 'PROYECTO_custom_admin_styles');
-add_action('admin_init', 'PROYECTO_custom_admin_styles');
+add_action('login_head', 'pahoy_custom_admin_styles');
+add_action('admin_init', 'pahoy_custom_admin_styles');
 
 
-function PROYECTO_dashboard_footer() {
+function pahoy_dashboard_footer() {
     echo '<span id="footer-thankyou">';
-    _e ('Gracias por crear con ', 'PROYECTO' );
+    _e ('Gracias por crear con ', 'pahoy' );
     echo '<a href="http://wordpress.org/" target="_blank">WordPress.</a> - ';
-    _e ('Tema desarrollado por ', 'PROYECTO' );
-    echo '<a href="http://robertochoa.com.ve/?utm_source=footer_admin&utm_medium=link&utm_content=PROYECTO" target="_blank">Robert Ochoa</a></span>';
+    _e ('Tema desarrollado por ', 'pahoy' );
+    echo '<a href="http://robertochoa.com.ve/?utm_source=footer_admin&utm_medium=link&utm_content=pahoy" target="_blank">Robert Ochoa</a></span>';
 }
-add_filter('admin_footer_text', 'PROYECTO_dashboard_footer');
+add_filter('admin_footer_text', 'pahoy_dashboard_footer');
 
 /* --------------------------------------------------------------
     ADD CUSTOM METABOX

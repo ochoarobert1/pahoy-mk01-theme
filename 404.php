@@ -9,9 +9,9 @@
                     </div>
                     <div class="w-100"></div>
                     <div class="col-12">
-                        <h1 class="text-center"><?php _e('Error 404', 'PROYECTO'); ?></h1>
+                        <h1 class="text-center"><?php _e('Error 404', 'pahoy'); ?></h1>
                         <hr>
-                        <h4 class="text-center"><?php _e('No podemos encontrar la página que buscas. Dirígete nuevamente al', 'PROYECTO'); ?> <a href="<?php echo home_url('/'); ?>" title="<?php _e('Volver al Inicio', 'PROYECTO'); ?>"><?php _e('inicio', 'PROYECTO'); ?></a>.</h4>
+                        <h4 class="text-center"><?php _e('No podemos encontrar la página que buscas. Dirígete nuevamente al', 'pahoy'); ?> <a href="<?php echo home_url('/'); ?>" title="<?php _e('Volver al Inicio', 'pahoy'); ?>"><?php _e('inicio', 'pahoy'); ?></a>.</h4>
                     </div>
                     <div class="w-100"></div>
                 </div>

@@ -2,8 +2,8 @@
 /**
 * Template Name: Template - Pagina sin titulo
 *
-* @package PROYECTO
-* @subpackage PROYECTO-mk01-theme
+* @package pahoy
+* @subpackage pahoy-mk01-theme
 * @since Mk. 1.0
 */
 ?>

@@ -8,12 +8,12 @@
     <?php endif; ?>
     <header>
         <h1 itemprop="name"><?php the_title(); ?></h1>
-        <?php the_tags( __( 'Tags: ', 'PROYECTO' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
+        <?php the_tags( __( 'Tags: ', 'pahoy' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
     </header>
     <div class="post-content" itemprop="articleBody">
         <?php the_content() ?>
         <?php wp_link_pages( array(
-    'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'PROYECTO' ) . '</span>',
+    'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'pahoy' ) . '</span>',
     'after'       => '</div>',
     'link_before' => '<span>',
     'link_after'  => '</span>', ) ); ?>

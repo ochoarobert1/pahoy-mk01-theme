@@ -8,13 +8,13 @@ add_filter('get_image_tag_class', 'image_tag_class' );
 
 /* ADD CONTENT WIDTH FUNCTION */
 
-function PROYECTO_content_width() {
+function pahoy_content_width() {
     // This variable is intended to be overruled from themes.
     // Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
     // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-    $GLOBALS['content_width'] = apply_filters( 'PROYECTO_content_width', 1170 );
+    $GLOBALS['content_width'] = apply_filters( 'pahoy_content_width', 1170 );
 }
-add_action( 'after_setup_theme', 'PROYECTO_content_width', 0 );
+add_action( 'after_setup_theme', 'pahoy_content_width', 0 );
 
 /* ADD CONTENT WIDTH FUNCTION */
 
@@ -45,9 +45,9 @@ add_filter('wp_nav_menu','add_menuclass');
 /**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.
  */
-function PROYECTO_pingback_header() {
+function pahoy_pingback_header() {
     if ( is_singular() && pings_open() ) {
         printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
     }
 }
-add_action( 'wp_head', 'PROYECTO_pingback_header' );
+add_action( 'wp_head', 'pahoy_pingback_header' );
