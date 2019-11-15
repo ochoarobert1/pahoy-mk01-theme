@@ -27,14 +27,14 @@ function my_theme_wrapper_end() {
 }
 /* WOOCOMMERCE - CUSTOM WRAPPER - END */
 
-
-
+/* GET CART QUANTITY */
 function custom_woocommerce_get_cart_quantity() {
     global $woocommerce;
     $items = $woocommerce->cart->get_cart_contents_count();
     return $items;
 }
 
+/* GET MINI CART */
 function custom_woocommerce_get_cart() {
     global $woocommerce;
     $items = $woocommerce->cart->get_cart();
