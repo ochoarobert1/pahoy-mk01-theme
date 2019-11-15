@@ -2,7 +2,7 @@
 add_action( 'cmb2_admin_init', 'pahoy_register_custom_metabox' );
 function pahoy_register_custom_metabox() {
     $prefix = 'ph_';
-
+/*
     $cmb_metabox = new_cmb2_box( array(
         'id'            => $prefix . 'metabox',
         'title'         => esc_html__( 'Test Metabox', 'cmb2' ),
@@ -29,4 +29,5 @@ function pahoy_register_custom_metabox() {
         // 'repeatable'      => true,
         // 'column'          => true, // Display field value in the admin post-listing columns
     ) );
+    */
 }

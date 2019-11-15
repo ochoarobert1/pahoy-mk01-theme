@@ -26,3 +26,65 @@ function my_theme_wrapper_end() {
     echo '</div></div></section>';
 }
 /* WOOCOMMERCE - CUSTOM WRAPPER - END */
+
+
+
+function custom_woocommerce_get_cart_quantity() {
+    global $woocommerce;
+    $items = $woocommerce->cart->get_cart_contents_count();
+    return $items;
+}
+
+function custom_woocommerce_get_cart() {
+    global $woocommerce;
+    $items = $woocommerce->cart->get_cart();
+?>
+<div class="custom-mini-cart-container">
+    <h2><?php _e('Carrito de Compras', 'pahoy'); ?></h2>
+    <?php if (!empty($items)) { ?>
+    <?php foreach($items as $item => $values) { ?>
+    <?php $_product =  wc_get_product( $values['data']->get_id() ); ?>
+    <?php $product_details = wc_get_product( $values['product_id'] ); ?>
+    <?php $categories = get_the_terms($values['product_id'], 'product_cat'); ?>
+    <div class="custom-mini-cart-item">
+        <div class="custom-mini-cart-item-category">
+            <?php foreach ($categories as $category) { ?>
+            <?php if ($category->name != 'Productos') { ?>
+            <span><?php echo $category->name; ?></span>
+            <?php } ?>
+            <?php } ?>
+        </div>
+        <div class="custom-mini-cart-item-content">
+            <div class="custom-mini-cart-item-image">
+                <a href="<?php echo get_permalink($values['product_id']); ?>" title="<?php _e('Ver Producto', 'pahoy'); ?>">
+                    <?php echo $product_details->get_image('avatar', array('class' => 'img-fluid')); ?>
+                </a>
+            </div>
+            <div class="custom-mini-cart-item-name">
+                <a href="<?php echo get_permalink($values['product_id']); ?>" title="<?php _e('Ver Producto', 'pahoy'); ?>">
+                    <h3><?php echo $_product->get_title(); ?> x <?php echo $values['quantity']; ?></h3>
+                </a>
+                <a href="" class="remove-link">x</a>
+                <div class="custom-mini-cart-item-info">
+                    <?php echo $_product->get_price_html(); ?>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <?php } ?>
+    <?php } else { ?>
+    <h3 class="empty-cart"><?php _e('El carrito esta vacio', 'pahoy'); ?></h3>
+    <?php } ?>
+    <div class="custom-mini-cart-subtotal">
+        <h4><strong><?php _e('Subtotal:', 'pahoy'); ?></strong> <?php echo $woocommerce->cart->get_cart_total(); ?></h4>
+    </div>
+    <div class="custom-mini-cart-buttons">
+        <?php $cart_url = apply_filters( 'woocommerce_get_cart_url', wc_get_cart_url() ); ?>
+        <a href="<?php echo $cart_url; ?>" title="<?php _e('Ver Carrito', 'pahoy'); ?>" class="btn btn-md btn-cart"><?php _e('Ver Carrito', 'pahoy'); ?></a>
+        <?php $get_checkout_url = apply_filters( 'woocommerce_get_checkout_url', wc_get_checkout_url() ); ?>
+        <a href="<?php echo $get_checkout_url; ?>" title="<?php _e('Finalizar Compra', 'pahoy'); ?>" class="btn btn-md btn-empty"><?php _e('Finalizar Compra', 'pahoy'); ?></a>
+    </div>
+</div>
+<?php
+}

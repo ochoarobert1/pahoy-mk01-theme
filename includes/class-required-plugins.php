@@ -50,8 +50,8 @@ function pahoy__register_required_plugins() {
         ),
 
         array(
-            'name'      => 'Elementor',
-            'slug'      => 'elementor',
+            'name'      => 'WPBakery Page Builder',
+            'slug'      => 'js_composer',
             'required'  => true,
         ),
 

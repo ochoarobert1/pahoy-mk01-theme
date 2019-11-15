@@ -1,5 +1,5 @@
 <?php
-
+/*
 function portafolio() {
 
     $labels = array(
@@ -56,3 +56,4 @@ function portafolio() {
 
 }
 add_action( 'init', 'portafolio', 0 );
+*/
