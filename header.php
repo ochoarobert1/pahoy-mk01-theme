@@ -62,7 +62,7 @@
                                     <?php ?> <?php $custom_logo_id = get_theme_mod( 'custom_logo' ); ?>
                                     <?php $image = wp_get_attachment_image_src( $custom_logo_id , array(200, 200) ); ?>
                                     <?php if (!empty($image)) { ?>
-                                    <img src="<?php echo $image[0];?>" alt="<?php echo get_bloginfo('name'); ?>" class="img-fluid img-logo" />
+                                    <img src="<?php echo $image[0];?>" alt="<?php echo get_bloginfo('name'); ?>" class="img-fluid img-logo" itemprop="photo" />
                                     <?php } ?>
                                 </a>
                             </div>
@@ -95,13 +95,12 @@
                                 <div class="navbar-cart-content navbar-cart-content-hidden">
                                     <?php custom_woocommerce_get_cart(); ?>
                                 </div>
-                                <?php if (is_user_logged_in()) { ?>
+
                                 <?php $myaccount_page_id = get_option( 'woocommerce_myaccount_page_id' ); ?>
                                 <?php if ( $myaccount_page_id ) { $myaccount_page_url = get_permalink( $myaccount_page_id ); } ?>
                                 <a href="<?php echo $myaccount_page_url; ?>" class="btn-user" title="<?php _e('Ingresar a Mi Cuenta', 'pahoy'); ?>">
                                     <i class="fa fa-user-o"></i>
                                 </a>
-                                <?php } ?>
                             </div>
                         </div>
                     </div>
