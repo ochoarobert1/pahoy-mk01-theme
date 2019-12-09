@@ -27,6 +27,21 @@ function my_theme_wrapper_end() {
 }
 /* WOOCOMMERCE - CUSTOM WRAPPER - END */
 
+remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
+add_action('custom_woocommerce_breadcrumb', 'woocommerce_breadcrumb', 20);
+
+remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5);
+
+/**
+ * Change number or products per row to 3
+ */
+add_filter('loop_shop_columns', 'loop_columns', 999);
+if (!function_exists('loop_columns')) {
+    function loop_columns() {
+        return 3; // 3 products per row
+    }
+}
+
 /* GET CART QUANTITY */
 function custom_woocommerce_get_cart_quantity() {
     global $woocommerce;
