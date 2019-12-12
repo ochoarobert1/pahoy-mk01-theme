@@ -19,17 +19,17 @@
         <?php /* FAVICONS */ ?>
         <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/images/apple-touch-icon.png" />
         <?php /* THEME NAVBAR COLOR */ ?>
-        <meta name="msapplication-TileColor" content="#454545" />
+        <meta name="msapplication-TileColor" content="#009F93" />
         <meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/images/win8-tile-icon.png" />
-        <meta name="theme-color" content="#454545" />
+        <meta name="theme-color" content="#009F93" />
         <?php /* AUTHOR INFORMATION */ ?>
         <meta name="language" content="<?php echo get_bloginfo('language'); ?>" />
-        <meta name="author" content="ADMIN_SITIO" />
-        <meta name="copyright" content="DIRECCION_URL" />
+        <meta name="author" content="QueHayPaHoy" />
+        <meta name="copyright" content="http://pahoy.world" />
         <meta name="geo.position" content="10.333333;-67.033333" />
         <meta name="ICBM" content="10.333333, -67.033333" />
-        <meta name="geo.region" content="VE" />
-        <meta name="geo.placename" content="DIRECCION_AUTOR" />
+        <meta name="geo.region" content="PA" />
+        <meta name="geo.placename" content="Panamá" />
         <meta name="DC.title" content="<?php if (is_home()) { echo get_bloginfo('name') . ' | ' . get_bloginfo('description'); } else { echo get_the_title() . ' | ' . get_bloginfo('name'); } ?>" />
         <?php /* MAIN TITLE - CALL HEADER MAIN FUNCTIONS */ ?>
         <?php wp_title('|', false, 'right'); ?>
@@ -60,9 +60,9 @@
                             <div class="navbar-logo col-2">
                                 <a href="<?php echo home_url('/');?>" title="<?php echo get_bloginfo('name'); ?>">
                                     <?php ?> <?php $custom_logo_id = get_theme_mod( 'custom_logo' ); ?>
-                                    <?php $image = wp_get_attachment_image_src( $custom_logo_id , array(200, 200) ); ?>
+                                    <?php $image = wp_get_attachment_image_src( $custom_logo_id , 'full' ); ?>
                                     <?php if (!empty($image)) { ?>
-                                    <img src="<?php echo $image[0];?>" alt="<?php echo get_bloginfo('name'); ?>" class="img-fluid img-logo" />
+                                    <img src="<?php echo $image[0];?>" alt="<?php echo get_bloginfo('name'); ?>" class="img-fluid img-logo" itemprop="photo" />
                                     <?php } ?>
                                 </a>
                             </div>
@@ -95,13 +95,12 @@
                                 <div class="navbar-cart-content navbar-cart-content-hidden">
                                     <?php custom_woocommerce_get_cart(); ?>
                                 </div>
-                                <?php if (is_user_logged_in()) { ?>
+
                                 <?php $myaccount_page_id = get_option( 'woocommerce_myaccount_page_id' ); ?>
                                 <?php if ( $myaccount_page_id ) { $myaccount_page_url = get_permalink( $myaccount_page_id ); } ?>
                                 <a href="<?php echo $myaccount_page_url; ?>" class="btn-user" title="<?php _e('Ingresar a Mi Cuenta', 'pahoy'); ?>">
                                     <i class="fa fa-user-o"></i>
                                 </a>
-                                <?php } ?>
                             </div>
                         </div>
                     </div>

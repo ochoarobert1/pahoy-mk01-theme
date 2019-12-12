@@ -127,15 +127,25 @@ function pahoy_widgets_init() {
         'after_title'   => '</h2>',
     ) );
 
-    //    register_sidebar( array(
-    //        'name' => __( 'Shop Sidebar', 'pahoy' ),
-    //        'id' => 'shop_sidebar',
-    //        'description' => __( 'Estos widgets seran vistos en Tienda y Categorias de Producto', 'pahoy' ),
-    //        'before_widget' => '<li id='%1$s' class='widget %2$s'>',
-    //        'after_widget'  => '</li>',
-    //        'before_title'  => '<h2 class='widgettitle'>',
-    //        'after_title'   => '</h2>',
-    //    ) );
+    register_sidebars( 4, array(
+        'name'          => __('Footer Section %d', 'pahoy'),
+        'id'            => 'sidebar_footer',
+        'description'   => __('Footer Section', 'pahoy'),
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</li>',
+        'before_title'  => '<h2 class="widgettitle">',
+        'after_title'   => '</h2>'
+    ) );
+
+    register_sidebar( array(
+        'name' => __( 'Sidebar de Tienda', 'pahoy' ),
+        'id' => 'shop_sidebar',
+        'description' => __( 'Estos widgets seran vistos en Tienda y Categorias de Producto', 'pahoy' ),
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+        'after_widget' => '</li>',
+        'before_title' => '<h2 class="widgettitle">',
+        'after_title' => '</h2>',
+    ) );
 }
 
 /* --------------------------------------------------------------

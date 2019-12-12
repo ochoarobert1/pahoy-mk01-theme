@@ -151,7 +151,7 @@ a {
                     top: 10px;
                     right: 10px;
                     background: @white;
-                    color: @black !important;
+                    color: @black  !important;
                     display: block;
                     height: 17px;
                     width: 17px;
@@ -226,4 +226,83 @@ a {
 
 .navbar-cart-content-hidden {
     display: none;
+}
+
+/* --------------------------------------------------------------
+2.- FOOTER
+-------------------------------------------------------------- */
+.the-footer {
+    background: url(../images/bg-pattern.png);
+
+    & .footer-overlay {
+        padding: 3rem 1rem;
+        background-color: rgba(0, 159, 147, 0.9);
+    }
+
+    & .footer-item {
+        color: @white;
+        font-size: 0.9rem;
+        line-height: 1.5rem;
+
+        & .footer-sidebar {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+
+            & a {
+                color: @white;
+            }
+
+            & .widget_media_image img {
+                max-width: 200px !important;
+                display: block;
+                margin: .5rem auto;
+                margin-bottom: 1rem;
+            }
+
+            & .widgettitle {
+                font-size: 1.2rem;
+                font-weight: 700;
+                margin-bottom: 1.2rem;
+            }
+
+            & .widget_nav_menu {
+                & .menu {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+
+                    & .nav-link {
+                        padding-left: 0;
+                    }
+                }
+            }
+
+            & .widget_product_categories {
+                & .product-categories {
+                    padding: 0;
+                    list-style: none;
+                    margin: 0;
+
+                    & a {
+                        display: block;
+                        padding: .5rem 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.footer-copy {
+    background: @green;
+    color: @white;
+    padding: .8rem;
+    text-align: center;
+
+    & h6 {
+        margin: 0;
+        font-size: .9rem;
+        font-weight: 300;
+    }
 }
