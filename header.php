@@ -54,10 +54,47 @@
         <div id="fb-root"></div>
         <header class="container-fluid" role="banner" itemscope itemtype="http://schema.org/WPHeader">
             <div class="row">
-                <div class="the-header col-12">
-                    <div class="container">
+                <div class="top-header col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="container-fluid">
                         <div class="row align-items-center">
-                            <div class="navbar-logo col-2">
+                            <div class="top-header-left col-6">
+                                <div class="top-header-item social-container">
+                                    <a href="https://www.facebook.com/QueHayPaHoyPanama" title="<?php _e('Visita nuestra página en Facebook', 'pahoy'); ?>" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://twitter.com/quehaypahoy_pty" title="<?php _e('Visita nuestro perfil en Twitter', 'pahoy'); ?>" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                    <a href="https://www.instagram.com/quehaypahoy_panama/" title="<?php _e('Visita nuestro perfil en Instagram', 'pahoy'); ?>" target="_blank"><i class="fa fa-instagram"></i></a>
+                                </div>
+                                <div class="top-header-item email-container">
+                                    <a href="mailto:info@pahoy.world">info@pahoy.world</a>
+                                </div>
+                            </div>
+                            <div class="top-header-right col-6">
+                                <div class="top-header-item number-container">
+                                    <span>+ (507) 6 880 6427</span>
+                                </div>
+
+                                <?php $myaccount_page_id = get_option( 'woocommerce_myaccount_page_id' ); ?>
+                                <?php if ( $myaccount_page_id ) { $myaccount_page_url = get_permalink( $myaccount_page_id ); } ?>
+                                <?php if (is_user_logged_in()) { ?>
+                                <div class="top-header-item account-container">
+                                    <a href="<?php echo $myaccount_page_url; ?>" title="<?php _e('Haz click aqui para iniciar sesión', 'pahoy'); ?>"><?php _e('Iniciar Sesión', 'pahoy'); ?></a>
+                                </div>
+                                <?php } else { ?>
+                                <div class="top-header-item account-container">
+                                    <a href="<?php echo $myaccount_page_url; ?>" title="<?php _e('Haz click aqui para iniciar sesión', 'pahoy'); ?>"><?php _e('Iniciar Sesión', 'pahoy'); ?></a>
+                                </div>
+                                <div class="top-header-item account-container">
+                                    <a href="<?php echo $myaccount_page_url; ?>" title="<?php _e('Haz click aqui para registrarse', 'pahoy'); ?>"><?php _e('Regístrate', 'pahoy'); ?></a>
+                                </div>
+                                <?php } ?>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="the-header col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <div class="navbar-logo col-1">
                                 <a href="<?php echo home_url('/');?>" title="<?php echo get_bloginfo('name'); ?>">
                                     <?php ?> <?php $custom_logo_id = get_theme_mod( 'custom_logo' ); ?>
                                     <?php $image = wp_get_attachment_image_src( $custom_logo_id , 'full' ); ?>
@@ -66,7 +103,7 @@
                                     <?php } ?>
                                 </a>
                             </div>
-                            <div class="navbar-menu col-8">
+                            <div class="navbar-menu col-9">
                                 <nav class="navbar navbar-expand-md navbar-light" role="navigation">
 
                                     <!-- Brand and toggle get grouped for better mobile display -->
@@ -76,11 +113,11 @@
                                     <?php
                                     wp_nav_menu( array(
                                         'theme_location'    => 'header_menu',
-                                        'depth'             => 1, // 1 = with dropdowns, 0 = no dropdowns.
+                                        'depth'             => 2, // 1 = with dropdowns, 0 = no dropdowns.
                                         'container'         => 'div',
                                         'container_class'   => 'collapse navbar-collapse',
                                         'container_id'      => 'bs-example-navbar-collapse-1',
-                                        'menu_class'        => 'navbar-nav ml-auto mr-auto',
+                                        'menu_class'        => 'navbar-nav mr-auto',
                                         'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
                                         'walker'            => new WP_Bootstrap_Navwalker()
                                     ) );
@@ -95,11 +132,8 @@
                                 <div class="navbar-cart-content navbar-cart-content-hidden">
                                     <?php custom_woocommerce_get_cart(); ?>
                                 </div>
-
-                                <?php $myaccount_page_id = get_option( 'woocommerce_myaccount_page_id' ); ?>
-                                <?php if ( $myaccount_page_id ) { $myaccount_page_url = get_permalink( $myaccount_page_id ); } ?>
-                                <a href="<?php echo $myaccount_page_url; ?>" class="btn-user" title="<?php _e('Ingresar a Mi Cuenta', 'pahoy'); ?>">
-                                    <i class="fa fa-user-o"></i>
+                                <a class="btn-search" title="<?php _e('Buscar', 'pahoy'); ?>">
+                                    <i class="fa fa-search"></i>
                                 </a>
                             </div>
                         </div>
@@ -107,4 +141,13 @@
                 </div>
             </div>
         </header>
+        <nav class="floating-nav menu_scroll_loader is-hidden">
+            <div class="floating-nav__inner">
+                <header class="container-fluid" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+                    <div class="row">
+
+                    </div>
+                </header>
+            </div>
+        </nav>
         <?php custom_woocommerce_get_cart_quantity(); ?>
