@@ -46,7 +46,11 @@ add_action('wp_enqueue_scripts', 'vc_pahoy_frontend_scripts_caller', 99);
 /* --------------------------------------------------------------
 /* CUSTOM WPBAKERY FUNCTIONS
 -------------------------------------------------------------- */
-//require_once('vc-elements/custom-slider-bar-map.php');
+require_once('vc-elements/custom_product_categories.php');
+require_once('vc-elements/custom_title_section.php');
+require_once('vc-elements/custom_media_content.php');
+require_once('vc-elements/custom_taxonomy_boxes.php');
+require_once('vc-elements/custom_testimonials_section.php');
 
 function custom_vc_additional_params() {
     $attributes = array(

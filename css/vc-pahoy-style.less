@@ -1,0 +1,264 @@
+// compress: false, strictMath: true, javascriptEnabled: true
+
+/* --------------------------------------------------------------
+/* MAIN LESS MIXINS AND FUNCTIONS - LESSHAT
+-------------------------------------------------------------- */
+@import 'less/_lesshat.less';
+/* --------------------------------------------------------------
+Variables
+-------------------------------------------------------------- */
+
+/* Colors */
+@black: #000000;
+@white: #ffffff;
+@lightgreen: #1CBBB3;
+@green: #009F93;
+@orange: #EBC00C;
+
+
+/* --------------------------------------------------------------
+ELEMENTOS
+-------------------------------------------------------------- */
+/* LISTADO DE CATEGORIA */
+.custom-category-container {
+    & .custom-category-item {
+        & .custom-category-item-wrapper {
+            position: relative;
+            background: @white;
+            border: 1px solid @green;
+            text-align: center;
+            border-radius: 5px;
+            .display(flex);
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+            min-height: 150px;
+            .transition(all .3s ease-in-out);
+
+            & a {
+                color: @black;
+            }
+
+            & .fa {
+                color: @green;
+                font-size: 1.5rem;
+            }
+
+            & h3 {
+                font-size: 1rem;
+                margin-top: 1rem;
+                margin-bottom: 0;
+            }
+
+            & .custom-category-counter-elements {
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: @green;
+                color: @white;
+                height: 100%;
+                width: 100%;
+                .display(flex);
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                .transition(all .3s ease-in-out);
+
+                & a {
+                    color: @white;
+                }
+
+                & .fa {
+                    color: @white;
+                }
+            }
+
+            &:hover {
+                & .custom-category-counter-elements {
+                    opacity: 1;
+                }
+            }
+
+        }
+    }
+}
+
+/* CUSTOM TITLE */
+.custom-title-section {
+    padding: 3rem 1rem;
+    text-align: center;
+
+    & h2 {
+        position: relative;
+        color: @black;
+        font-size: 2rem;
+        font-weight: 600;
+
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: 47.5%;
+            width: 80px;
+            height: 10px;
+            background: url(../images/line-pattern.png);
+            background-size: auto;
+            background-repeat: no-repeat;
+            background-position: center center;
+
+        }
+
+    }
+}
+
+.izquierda {
+    text-align: left;
+
+    & h2 {
+        &:after {
+            left: 0;
+        }
+    }
+}
+
+
+.derecha {
+    text-align: right;
+
+    & h2 {
+        &:after {
+            left: unset;
+            right: 0;
+        }
+    }
+}
+
+
+.custom-media {
+    align-items: center;
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+    font-weight: 400;
+
+    & h5 {
+        font-size: 1.3rem;
+        line-height: 1.5rem;
+        font-weight: 500;
+    }
+}
+
+.vc_column-inner .woocommerce {
+    padding: 0 1rem;
+}
+
+/* TAXONOMY BOXES */
+.custom-taxonomy-container {
+    & .custom-taxonomy-item {
+        margin-bottom: 2rem;
+
+        & .custom-taxonomy-item-wrapper {
+            position: relative;
+            overflow: hidden;
+
+            & .custom-taxonomy-item-image-wrapper {
+                & img {
+                    .transition(all .3s ease-in-out);
+                }
+            }
+
+            &:hover {
+                & .custom-taxonomy-item-image-wrapper {
+                    & img {
+                        .transform(scale(1.1));
+                    }
+                }
+            }
+
+            & .custom-taxonomy-item-content {
+                color: @white;
+                background-color: rgba(0, 0, 0, 0.45);
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                .display(flex);
+                align-items: center;
+                justify-content: center;
+                flex-flow: column;
+
+                & .taxonomy-counter {
+                    background: @green;
+                    color: @white;
+                    padding: 0.4rem 1.1rem;
+                    margin-top: 0.5rem;
+                    border-radius: 30px;
+                    border: 1px solid @green;
+
+                    &:hover {
+                        color: @white;
+                        background: none transparent;
+                    }
+                }
+
+                & a {
+                    color: @white;
+
+                    &:hover {
+                        color: @green;
+                    }
+                }
+
+                & h2 {
+                    font-weight: 400;
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+    }
+}
+
+/* TESTIMONIALS SLIDER */
+.custom-testimonials-section {
+    & .custom-testimonials-content {
+        padding: 0;
+
+        & .custom-testimonials-item {
+            & .custom-testimonials-item-wrapper {
+                position: relative;
+                border: 1px solid #bbbaba;
+                padding: 1.5rem 2rem;
+                font-size: 0.9rem;
+                line-height: 1.6rem;
+
+                &:after {
+                    font-family: 'Arial', sans-serif;
+                    content: ' ';
+                    background: url(../images/quotes.png);
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    width: 30px;
+                    height: 30px;
+                    background-size: cover;
+                }
+
+                & .media {
+                    align-items: center;
+                    margin-bottom: 1.5rem;
+
+                    & .test-star-rating {
+                        font-size: 1.1rem;
+                        color: #e8c100;
+                    }
+                }
+
+                & img {
+                    max-width: 70px;
+                    border-radius: 100%;
+                }
+
+            }
+        }
+    }
+}

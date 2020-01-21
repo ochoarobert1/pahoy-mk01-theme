@@ -6,13 +6,15 @@ jQuery(document).ready(function ($) {
         jQuery('.navbar-cart-content').toggleClass('navbar-cart-content-hidden');
     });
 
-    jQuery('.custom-slider-products-owl-carousel').owlCarousel({
-        items: 4,
-        margin: 30,
-        loop: true,
-        nav: true,
-        dots: false
-    });
+    if (jQuery('.custom-slider-products-owl-carousel').length > 0 ) {
+        jQuery('.custom-slider-products-owl-carousel').owlCarousel({
+            items: 4,
+            margin: 30,
+            loop: true,
+            nav: true,
+            dots: false
+        });
+    }
 
     jQuery(window).on("scroll", function () {
         var st = jQuery(this).scrollTop();
@@ -20,5 +22,15 @@ jQuery(document).ready(function ($) {
             lastScrollTop = st,
             0 == jQuery(this).scrollTop() && jQuery(".floating-nav").addClass("is-hidden")
     });
+
+    if (jQuery('.custom-testimonials-slider').length > 0 ) {
+        jQuery('.custom-testimonials-slider').owlCarousel({
+            items: 3,
+            margin: 30,
+            loop: true,
+            nav: false,
+            dots: true
+        });
+    }
 
 }); /* end of as page load scripts */

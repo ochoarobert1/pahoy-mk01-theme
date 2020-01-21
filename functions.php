@@ -204,6 +204,25 @@ if ( function_exists('add_theme_support') ) {
 if ( function_exists('add_image_size') ) {
     add_image_size('avatar', 100, 100, true);
     add_image_size('blog_img', 276, 217, true);
+    add_image_size('locacion_big', 870, 420, array('center', 'center'));
+    add_image_size('locacion_square', 450, 450, array('center', 'center'));
     add_image_size('single_img', 636, 297, true );
-    add_image_size('custom_woocommerce_thumbnail', 350, 233, array('center', 'center'));
+    add_image_size('custom_woocommerce_thumbnail', 300, 300, array('center', 'center'));
 }
+
+function image_uploader_enqueue() {
+    global $typenow;
+    if( ($typenow == 'product') ) {
+        wp_enqueue_media();
+
+        wp_register_script( 'meta-image', get_template_directory_uri() . '/js/pahoy-admin-functions.js', array( 'jquery' ) );
+        wp_localize_script( 'meta-image', 'meta_image',
+                           array(
+                               'title' => 'Upload an Image',
+                               'button' => 'Use this Image',
+                           )
+                          );
+        wp_enqueue_script( 'meta-image' );
+    }
+}
+add_action( 'admin_enqueue_scripts', 'image_uploader_enqueue' );
