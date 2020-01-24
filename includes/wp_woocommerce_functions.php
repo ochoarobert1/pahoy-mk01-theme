@@ -113,4 +113,141 @@ add_action('custom_woocommerce_breadcrumbs', 'woocommerce_breadcrumb', 20);
 
 
 /* CUSTOM ACTIONS ON SINGLE PRODUCT */
-add_action('custom_woocommerce_template_single_rating', 'woocommerce_template_single_rating');
+//add_action('custom_woocommerce_template_single_rating', 'woocommerce_template_single_rating');
+remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
+
+class WC_Product_Type_Plugin {
+
+    /**
+     * Build the instance
+     */
+    public function __construct() {
+        add_action( 'woocommerce_loaded', array( $this, 'load_plugin' ) );
+        add_filter( 'product_type_selector', array( $this, 'add_type' ) );
+        register_activation_hook( __FILE__, array( $this, 'install' ) );
+        add_action( 'woocommerce_product_options_pricing', array( $this, 'add_advanced_pricing' ) );
+        add_action( 'admin_footer', array( $this, 'enable_js_on_wc_product' ) );
+        add_filter( 'woocommerce_product_data_tabs', array( $this, 'add_product_tab' ), 50 );
+        add_action( 'woocommerce_product_data_panels', array( $this, 'add_product_tab_content' ) );
+        add_action( 'woocommerce_process_product_meta_advanced', array( $this, 'save_advanced_settings' ) );
+
+        add_action( 'woocommerce_product_options_general_product_data', function(){
+            echo '<div class="options_group show_if_advanced clear"></div>';
+        } );
+    }
+    /**
+     * @param $post_id
+     */
+    public function save_advanced_settings( $post_id ) {
+        $price = isset( $_POST['_member_price'] ) ? sanitize_text_field( $_POST['_member_price'] ) : '';
+        update_post_meta( $post_id, '_member_price', $price );
+    }
+    public function add_type( $types ) {
+        $types['advanced'] = __( 'Tour', 'yourtextdomain' );
+
+        return $types;
+    }
+    public function add_advanced_pricing() {
+        global $product_object;
+?>
+<div class='options_group show_if_advanced'>
+    <?php
+
+        woocommerce_wp_text_input(
+            array(
+                'id'          => '_member_price',
+                'label'       => __( 'Pricing only for members', 'your_textdomain' ),
+                'value'       => $product_object->get_meta( '_member_price', true ),
+                'default'     => '',
+                'placeholder' => 'Add pricing',
+                'data_type' => 'price',
+            )
+        );
+    ?>
+</div>
+
+<?php
+    }
+    public function install() {
+        // If there is no advanced product type taxonomy, add it.
+        if ( ! get_term_by( 'slug', 'advanced', 'product_type' ) ) {
+            wp_insert_term( 'advanced', 'product_type' );
+        }
+    }
+    public function enable_js_on_wc_product() {
+        global $post, $product_object;
+
+        if ( ! $post ) { return; }
+
+        if ( 'product' != $post->post_type ) :
+        return;
+        endif;
+
+        $is_advanced = $product_object && 'advanced' === $product_object->get_type() ? true : false;
+
+?>
+<script type='text/javascript'>
+    jQuery(document).ready(function() {
+        //for Price tab
+        jQuery('#general_product_data .pricing').addClass('show_if_advanced');
+
+        <?php if ( $is_advanced ) { ?>
+        jQuery('#general_product_data .pricing').show();
+        <?php } ?>
+    });
+
+</script>
+<?php
+    }
+    /**
+     * Load WC Dependencies
+     *
+     * @return void
+     */
+    public function load_plugin() {
+        require_once 'class-wc-product-advanced.php';
+    }
+    /**
+     * Add Experience Product Tab.
+     *
+     * @param array $tabs
+     *
+     * @return mixed
+     */
+    public function add_product_tab( $tabs ) {
+
+        $tabs['advanced_type'] = array(
+            'label'    => __( 'Advanced Type', 'your_textdomain' ),
+            'target' => 'advanced_type_product_options',
+            'class'  => 'show_if_advanced',
+        );
+
+        return $tabs;
+    }
+
+    /**
+     * Add Content to Product Tab
+     */
+    public function add_product_tab_content() {
+        global $product_object;
+?>
+<div id='advanced_type_product_options' class='panel woocommerce_options_panel hidden'>
+    <div class='options_group'>
+        <?php
+
+        woocommerce_wp_text_input(
+            array(
+                'id'          => '_some_data',
+                'label'       => __( 'Data', 'your_textdomain' ),
+                'value'       => $product_object->get_meta( '_some_data', true ),
+                'default'     => '',
+                'placeholder' => 'Enter data',
+            ));
+        ?>
+    </div>
+</div>
+<?php
+    }
+}
+
+new WC_Product_Type_Plugin();

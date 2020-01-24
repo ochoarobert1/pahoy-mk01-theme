@@ -23,36 +23,46 @@ get_header( 'shop' ); ?>
 
 <?php
 /**
-		 * woocommerce_before_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-		 * @hooked woocommerce_breadcrumb - 20
-		 */
+         * woocommerce_before_main_content hook.
+         *
+         * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+         * @hooked woocommerce_breadcrumb - 20
+         */
 do_action( 'woocommerce_before_main_content' );
 ?>
 
-<?php while ( have_posts() ) : the_post(); ?>
+<div class="custom-woocommerce-single-product-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+    <div class="container">
+        <div class="row">
+            <div class="custom-woocommerce-single-sidebar col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                <?php
+                /**
+         * woocommerce_sidebar hook.
+         *
+         * @hooked woocommerce_get_sidebar - 10
+         */
+                do_action( 'woocommerce_sidebar' );
+                ?>
+            </div>
+            <div class="custom-woocommerce-single-content col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
+                <?php while ( have_posts() ) : the_post(); ?>
 
-<?php wc_get_template_part( 'content', 'single-product' ); ?>
+                <?php wc_get_template_part( 'content', 'single-product' ); ?>
 
-<?php endwhile; // end of the loop. ?>
+                <?php endwhile; // end of the loop. ?>
+
+            </div>
+        </div>
+    </div>
+</div>
 
 <?php
 /**
-		 * woocommerce_after_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
-		 */
+         * woocommerce_after_main_content hook.
+         *
+         * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
+         */
 do_action( 'woocommerce_after_main_content' );
-?>
-
-<?php
-/**
-		 * woocommerce_sidebar hook.
-		 *
-		 * @hooked woocommerce_get_sidebar - 10
-		 */
-do_action( 'woocommerce_sidebar' );
 ?>
 
 <?php get_footer( 'shop' );

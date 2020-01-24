@@ -19,31 +19,6 @@ defined( 'ABSPATH' ) || exit;
 
 global $product;
 
-?>
-<?php $url = get_post_meta(get_the_ID(), 'ph_porduct_banner_image', true); ?>
-<div class="custom-woocommerce-single-picture-container" style="background: url(<?php echo $url; ?>);">
-    <div class="custom-woocommerce-single-picture-container-wrapper">
-        <div class="container">
-            <div class="row align-items-end justify-content-between">
-                <div class="custom-woocommerce-title-information col-8">
-                    <?php $terms = get_the_terms(get_the_ID(), 'product_cat'); ?>
-                    <?php if ( $terms && ! is_wp_error( $terms ) ) :  ?>
-                    <?php foreach ( $terms as $term ) { ?>
-                    <a href="<?php echo get_term_link($term); ?>" title="<?php _e('Ver mas elementos de esta categoría', 'pahoy'); ?>" class="custom-category-link"><?php echo $term->name; ?></a>
-                    <?php } ?>
-                    <?php endif; ?>
-                    <h1><?php the_title(); ?></h1>
-                    <?php do_action('custom_woocommerce_template_single_rating'); ?>
-                </div>
-                <div class="custom-woocommerce-actions-container col-4">
-                    <a href=""><i class="fa fa-heart"></i> <?php _e('Guardar', 'pahoy'); ?></a>
-                    <a href=""><i class="fa fa-share"></i> <?php _e('Compartir', 'pahoy'); ?></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<?php 
 /**
  * Hook: woocommerce_before_single_product.
  *
@@ -52,63 +27,25 @@ global $product;
 do_action( 'woocommerce_before_single_product' );
 
 if ( post_password_required() ) {
-    echo get_the_password_form(); // WPCS: XSS ok.
-    return;
+	echo get_the_password_form(); // WPCS: XSS ok.
+	return;
 }
 ?>
-<div class="custom-woocommerce-single-main-container col-12" id="product-<?php the_ID(); ?>">
-    <div class="container">
-        <div class="row">
-            <div class="custom-woocommerce-single-main-content col-12">
-                <div class="row">
-                    <div class="custom-woocommerce-single-main-left col-8">
-                        <div class="row">
-                            <div class="woocommerce-main-navigation-links col-12">
-                                <ul>
-                                    <li>
-                                        <a href="#information"><?php _e('Información', 'pahoy'); ?></a>
-                                    </li>
-                                    <li>
-                                        <a href="#gallery"><?php _e('Galería', 'pahoy'); ?></a>
-                                    </li>
-                                    <li>
-                                        <a href="#pricing"><?php _e('Precios', 'pahoy'); ?></a>
-                                    </li>
-                                    <li>
-                                        <a href="#reviews"><?php _e('Reviews', 'pahoy'); ?></a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div id="information" class="woocommerce-custom-product-content col-12">
-                                <h2><?php _e('Información', 'pahoy'); ?></h2>
-                                <?php the_content(); ?>
-                            </div>
-                            <div id="gallery" class="woocommerce-custom-product-gallery col-12">
-                                <h2><?php _e('Galería', 'pahoy'); ?></h2>
-                                <?php
-                                /**
+<div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
+
+	<?php
+	/**
 	 * Hook: woocommerce_before_single_product_summary.
 	 *
 	 * @hooked woocommerce_show_product_sale_flash - 10
 	 * @hooked woocommerce_show_product_images - 20
 	 */
-                                do_action( 'woocommerce_before_single_product_summary' );
-                                ?>
-                            </div>
-                            <div id="pricing" class="woocommerce-custom-product-pricing col-12">
-                                <h2><?php _e('Información', 'pahoy'); ?></h2>
-                                <?php the_content(); ?>
-                            </div>
-                            <div id="reviews" class="woocommerce-custom-product-reviews col-12">
-                                <h2><?php _e('Información', 'pahoy'); ?></h2>
-                                <?php the_content(); ?>
-                            </div>
+	do_action( 'woocommerce_before_single_product_summary' );
+	?>
 
-                        </div>
-                    </div>
-                    <div class="custom-woocommerce-buttons-container col-4">
-                        <?php
-                        /**
+	<div class="summary entry-summary">
+		<?php
+		/**
 		 * Hook: woocommerce_single_product_summary.
 		 *
 		 * @hooked woocommerce_template_single_title - 5
@@ -120,34 +57,20 @@ if ( post_password_required() ) {
 		 * @hooked woocommerce_template_single_sharing - 50
 		 * @hooked WC_Structured_Data::generate_product_data() - 60
 		 */
-                        do_action( 'woocommerce_single_product_summary' );
-                        ?>
-                    </div>
-                </div>
-                <div>
+		do_action( 'woocommerce_single_product_summary' );
+		?>
+	</div>
 
-
-
-                    <div class="summary entry-summary">
-
-                    </div>
-
-                    <?php
-                    /**
+	<?php
+	/**
 	 * Hook: woocommerce_after_single_product_summary.
 	 *
 	 * @hooked woocommerce_output_product_data_tabs - 10
 	 * @hooked woocommerce_upsell_display - 15
 	 * @hooked woocommerce_output_related_products - 20
 	 */
-                    do_action( 'woocommerce_after_single_product_summary' );
-                    ?>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
+	do_action( 'woocommerce_after_single_product_summary' );
+	?>
 </div>
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>
