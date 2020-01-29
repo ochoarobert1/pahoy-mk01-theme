@@ -6,7 +6,25 @@ jQuery(document).ready(function ($) {
         jQuery('.navbar-cart-content').toggleClass('navbar-cart-content-hidden');
     });
 
-    if (jQuery('.custom-slider-products-owl-carousel').length > 0 ) {
+    jQuery('.btn-menu').on('click', function (e) {
+        e.stopPropagation();
+        jQuery('.navbar-mobile-container').toggleClass('navbar-mobile-hidden');
+    });
+    
+    jQuery('.btn-menu-close').on('click', function (e) {
+        e.stopPropagation();
+        jQuery('.navbar-mobile-container').toggleClass('navbar-mobile-hidden');
+    });
+    
+    
+
+    jQuery(document).on('click', '.menu-item-has-children a', function (e) {
+        jQuery(this).toggleClass('nav-link-open');
+        jQuery(this).next('.sub-menu').toggleClass('sub-menu-open');
+        console.log('hola');
+    });
+
+    if (jQuery('.custom-slider-products-owl-carousel').length > 0) {
         jQuery('.custom-slider-products-owl-carousel').owlCarousel({
             items: 4,
             margin: 30,
@@ -23,7 +41,7 @@ jQuery(document).ready(function ($) {
             0 == jQuery(this).scrollTop() && jQuery(".floating-nav").addClass("is-hidden")
     });
 
-    if (jQuery('.custom-testimonials-slider').length > 0 ) {
+    if (jQuery('.custom-testimonials-slider').length > 0) {
         jQuery('.custom-testimonials-slider').owlCarousel({
             items: 3,
             margin: 30,

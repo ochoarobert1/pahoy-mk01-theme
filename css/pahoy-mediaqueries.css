@@ -2,9 +2,49 @@
 /* --------------------------------------------------------------
 MEDIAQUERIES LG/MD - LAYOUTS BIGGER THAN 992px
 -------------------------------------------------------------- */
+@media (max-width: 1440px) {
+  .the-header .navbar-logo .img-logo {
+    max-width: 135px;
+  }
+  .navbar-menu {
+    padding-left: 2rem;
+  }
+}
+@media (max-width: 1170px) {
+  .navbar-menu {
+    padding-left: 4rem;
+  }
+  .the-header .navbar-menu .navbar .navbar-nav .nav-item .nav-link {
+    padding: 0.5rem 1rem;
+  }
+  .the-header .navbar-logo .img-logo {
+    max-width: 130px;
+  }
+}
 /* --------------------------------------------------------------
 MEDIAQUERIES SM - LAYOUTS BIGGER THAN 768px
 -------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .top-header {
+    padding: 0.5rem 0;
+  }
+  .top-header .top-header-left {
+    padding: 0;
+  }
+  .top-header .top-header-right {
+    padding: 0;
+  }
+}
 /* --------------------------------------------------------------
 MEDIAQUERIES XS - LAYOUTS LESS THAN 768px
 -------------------------------------------------------------- */
+@media (max-width: 533px) {
+  .the-header {
+    padding: 1rem 0rem;
+  }
+}
+@media (max-width: 414px) {
+  .the-header .navbar-logo .img-logo {
+    max-width: 100px;
+  }
+}
