@@ -34,7 +34,7 @@ do_action( 'woocommerce_before_main_content' );
 <div class="custom-woocommerce-single-product-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
     <div class="container">
         <div class="row">
-            <div class="custom-woocommerce-single-sidebar col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+            <div class="custom-woocommerce-single-sidebar col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 d-xl-block d-lg-block d-md-none d-sm-none d-none">
                 <?php
                 /**
          * woocommerce_sidebar hook.
@@ -44,7 +44,7 @@ do_action( 'woocommerce_before_main_content' );
                 do_action( 'woocommerce_sidebar' );
                 ?>
             </div>
-            <div class="custom-woocommerce-single-content col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
+            <div class="custom-woocommerce-single-content col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
                 <?php while ( have_posts() ) : the_post(); ?>
 
                 <?php wc_get_template_part( 'content', 'single-product' ); ?>

@@ -34,6 +34,9 @@
                             </div>
                             <?php endif; ?>
                             <div class="w-100"></div>
+                            <div class="footer-payment col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/payment.png" alt="Payment" class="img-fluid" />
+                            </div>
                         </div>
                     </div>
                 </div>

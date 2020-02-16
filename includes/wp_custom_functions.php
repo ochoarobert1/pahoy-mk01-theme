@@ -65,9 +65,9 @@ if ( ! class_exists( 'CT_TAX_META' ) ) {
 
         public function init() {
             add_action( 'product_cat_add_form_fields', array ( $this, 'add_product_cat_image' ), 10, 2 );
-            add_action( 'created_category', array ( $this, 'save_product_cat_image' ), 10, 2 );
+            add_action( 'created_product_cat', array ( $this, 'save_product_cat_image' ), 10, 2 );
             add_action( 'product_cat_edit_form_fields', array ( $this, 'update_product_cat_image' ), 10, 2 );
-            add_action( 'edited_category', array ( $this, 'updated_product_cat_image' ), 10, 2 );
+            add_action( 'edited_product_cat', array ( $this, 'updated_product_cat_image' ), 10, 2 );
             add_action( 'admin_enqueue_scripts', array( $this, 'load_media' ) );
             add_action( 'admin_footer', array ( $this, 'add_script' ) );
         }

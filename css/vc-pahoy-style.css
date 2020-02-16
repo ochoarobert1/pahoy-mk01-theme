@@ -30,6 +30,12 @@ ELEMENTOS
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
+.custom-category-container .custom-category-item .custom-category-item-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
 .custom-category-container .custom-category-item .custom-category-item-wrapper a {
   color: #000000;
 }
@@ -38,9 +44,23 @@ ELEMENTOS
   font-size: 1.5rem;
 }
 .custom-category-container .custom-category-item .custom-category-item-wrapper h3 {
-  font-size: 1rem;
-  margin-top: 1rem;
+  position: absolute;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  margin-top: 0;
   margin-bottom: 0;
+  z-index: 8;
+  top: 0;
+  left: 0;
+  background: rgba(0, 46, 43, 0.45);
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 400;
 }
 .custom-category-container .custom-category-item .custom-category-item-wrapper .custom-category-counter-elements {
   position: absolute;
@@ -70,7 +90,85 @@ ELEMENTOS
   color: #ffffff;
 }
 .custom-category-container .custom-category-item .custom-category-item-wrapper:hover .custom-category-counter-elements {
+  z-index: 15;
   opacity: 1;
+}
+.custom-category-slider .custom-category-item .custom-category-item-wrapper {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #009F93;
+  text-align: center;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  min-height: 150px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.custom-category-slider .custom-category-item .custom-category-item-wrapper a {
+  color: #000000;
+}
+.custom-category-slider .custom-category-item .custom-category-item-wrapper .fa {
+  color: #009F93;
+  font-size: 1.5rem;
+}
+.custom-category-slider .custom-category-item .custom-category-item-wrapper h3 {
+  position: absolute;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  z-index: 8;
+  top: 0;
+  left: 0;
+  background: rgba(0, 46, 43, 0.45);
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 400;
+}
+.custom-category-slider .custom-category-item .custom-category-item-wrapper .custom-category-counter-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #009F93;
+  color: #ffffff;
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.custom-category-slider .custom-category-item .custom-category-item-wrapper .custom-category-counter-elements a {
+  color: #ffffff;
+}
+.custom-category-slider .custom-category-item .custom-category-item-wrapper .custom-category-counter-elements .fa {
+  color: #ffffff;
+}
+.custom-category-slider .custom-category-item .custom-category-item-wrapper:hover .custom-category-counter-elements {
+  opacity: 1;
+  z-index: 10;
 }
 /* CUSTOM TITLE */
 .custom-title-section {
@@ -113,6 +211,9 @@ ELEMENTOS
   font-size: 0.9rem;
   line-height: 1.4rem;
   font-weight: 400;
+}
+.custom-media img {
+  max-width: 75px;
 }
 .custom-media h5 {
   font-size: 1.3rem;
@@ -181,6 +282,7 @@ ELEMENTOS
 .custom-taxonomy-container .custom-taxonomy-item .custom-taxonomy-item-wrapper .custom-taxonomy-item-content h2 {
   font-weight: 400;
   margin-bottom: 1rem;
+  font-size: 1.3rem;
 }
 /* TESTIMONIALS SLIDER */
 .custom-testimonials-section .custom-testimonials-content {
@@ -215,4 +317,15 @@ ELEMENTOS
 .custom-testimonials-section .custom-testimonials-content .custom-testimonials-item .custom-testimonials-item-wrapper img {
   max-width: 70px;
   border-radius: 100%;
+}
+.custom-post-grid-item-content {
+  background: #037e76;
+  color: white;
+  margin-top: 10rem;
+  line-height: 2rem;
+}
+.custom-post-grid-item-content .custom-post-grid-item-content h3 {
+  font-size: 1.1rem;
+  line-height: 1.8rem;
+  min-height: 100px;
 }

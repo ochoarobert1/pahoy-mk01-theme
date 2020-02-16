@@ -72,6 +72,10 @@ function pahoy_load_css() {
         wp_register_style('main-style', get_template_directory_uri() . '/css/pahoy-style.css', false, $version_remove, 'all');
         wp_enqueue_style('main-style');
 
+        /*- MAIN STYLE -*/
+        wp_register_style('vc-pahoy-style', get_template_directory_uri() . '/css/vc-pahoy-style.css', false, $version_remove, 'all');
+        wp_enqueue_style('vc-pahoy-style');
+
         /*- MAIN MEDIAQUERIES -*/
         wp_register_style('main-mediaqueries', get_template_directory_uri() . '/css/pahoy-mediaqueries.css', array('main-style'), $version_remove, 'all');
         wp_enqueue_style('main-mediaqueries');

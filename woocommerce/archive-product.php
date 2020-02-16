@@ -63,7 +63,7 @@ do_action( 'woocommerce_before_main_content' );
 
 <div class="container">
     <div class="row">
-        <div class="custom-woocommerce-main-sidebar-container col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+        <div class="custom-woocommerce-main-sidebar-container col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 d-xl-block d-lg-block d-md-none d-sm-none d-none">
             <?php
             /**
  * Hook: woocommerce_sidebar.
@@ -73,7 +73,7 @@ do_action( 'woocommerce_before_main_content' );
             do_action( 'woocommerce_sidebar' );
             ?>
         </div>
-        <div class="custom-woocommerce-main-container col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
+        <div class="custom-woocommerce-main-container col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
             <?php
             if ( woocommerce_product_loop() ) {
 

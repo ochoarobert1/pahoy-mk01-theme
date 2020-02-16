@@ -30,9 +30,7 @@ add_action( 'vc_before_init', 'vc_pahoy_setup' );
 -------------------------------------------------------------- */
 function vc_pahoy_frontend_scripts_caller() {
     $version_remove = NULL;
-    /*- MAIN STYLE -*/
-    wp_register_style('vc-pahoy-style', get_template_directory_uri() . '/css/vc-pahoy-style.css', false, $version_remove, 'all');
-    wp_enqueue_style('vc-pahoy-style');
+    
 
     wp_enqueue_script( 'vc-pahoy-frontend-script', get_template_directory_uri() . '/js/vc-pahoy-frontend-scripts.js', array( 'jquery'), false, false );
 
@@ -51,6 +49,7 @@ require_once('vc-elements/custom_title_section.php');
 require_once('vc-elements/custom_media_content.php');
 require_once('vc-elements/custom_taxonomy_boxes.php');
 require_once('vc-elements/custom_testimonials_section.php');
+require_once('vc-elements/custom_news_section.php');
 
 function custom_vc_additional_params() {
     $attributes = array(

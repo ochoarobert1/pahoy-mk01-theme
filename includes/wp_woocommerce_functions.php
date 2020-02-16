@@ -28,6 +28,25 @@ function my_theme_wrapper_end() {
 }
 /* WOOCOMMERCE - CUSTOM WRAPPER - END */
 
+
+/**
+ * Change number or products per row to 3
+ */
+add_filter('loop_shop_columns', 'loop_columns', 999);
+if (!function_exists('loop_columns')) {
+    function loop_columns() {
+        return 4; // 3 products per row
+    }
+}
+
+function filter_woocommerce_subcategory_count_html( $mark_class_count_category_count_mark, $category ) {
+
+    $mark_class_count_category_count_mark = ' <mark class="count">' . $category->count . '</mark>';
+
+    return $mark_class_count_category_count_mark;
+
+}; 
+
 /* GET CART QUANTITY */
 function custom_woocommerce_get_cart_quantity() {
     global $woocommerce;
@@ -95,7 +114,6 @@ remove_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_p
 remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5);
 remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10);
 
-
 /* CHANGE QUANTITY OF PRODUCTS IN LOOP */
 add_filter('loop_shop_columns', 'loop_columns');
 if (!function_exists('loop_columns')) {
@@ -107,6 +125,7 @@ if (!function_exists('loop_columns')) {
 /* REMOVE ACTIONS ON LOOP CATEGORY - SHOP */
 remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
 add_action('custom_woocommerce_breadcrumbs', 'woocommerce_breadcrumb', 20);
+remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5);
 
 /* CUSTOM ACTIONS ON SINGLE PRODUCT */
 //add_action('custom_woocommerce_template_single_rating', 'woocommerce_template_single_rating');
@@ -214,7 +233,6 @@ class WC_Product_Type_Plugin {
         $is_eventos = $product_object && 'eventos' === $product_object->get_type() ? true : false;
         $is_tickets = $product_object && 'tickets' === $product_object->get_type() ? true : false;
         $is_tour = $product_object && 'tour' === $product_object->get_type() ? true : false;
-        var_dump($product_object->get_type());
 ?>
 <script type='text/javascript'>
     jQuery(document).ready(function() {
@@ -310,8 +328,6 @@ class WC_Product_Type_Plugin {
 }
 
 new WC_Product_Type_Plugin();
-
-
 
 
 

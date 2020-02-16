@@ -54,7 +54,7 @@ function pahoy_custom_post_elements() {
     );
     register_post_type( 'testimonios', $args );
 
-// Register Custom Taxonomy
+    // Register Custom Taxonomy
     $labels2 = array(
         'name'                       => _x( 'Locaciones', 'Taxonomy General Name', 'pahoy' ),
         'singular_name'              => _x( 'Locación', 'Taxonomy Singular Name', 'pahoy' ),
@@ -87,7 +87,42 @@ function pahoy_custom_post_elements() {
         'show_tagcloud'              => true,
         'show_in_rest'               => true,
     );
-    register_taxonomy( 'locaciones', array( 'product' ), $args2 );
+    register_taxonomy( 'locaciones', array( 'product', 'mec-events', 'eventos' ), $args2 );
+
+    $labels_prov = array(
+        'name'                       => _x( 'Provincias', 'Taxonomy General Name', 'pahoy' ),
+        'singular_name'              => _x( 'Provincia', 'Taxonomy Singular Name', 'pahoy' ),
+        'menu_name'                  => __( 'Provincias', 'pahoy' ),
+        'all_items'                  => __( 'Todas las Provincias', 'pahoy' ),
+        'parent_item'                => __( 'Provincia Padre', 'pahoy' ),
+        'parent_item_colon'          => __( 'Provincia Padre:', 'pahoy' ),
+        'new_item_name'              => __( 'Nueva Provincia', 'pahoy' ),
+        'add_new_item'               => __( 'Agregar Nueva Provincia', 'pahoy' ),
+        'edit_item'                  => __( 'Editar Provincia', 'pahoy' ),
+        'update_item'                => __( 'Actualizar Provincia', 'pahoy' ),
+        'view_item'                  => __( 'Ver Provincia', 'pahoy' ),
+        'separate_items_with_commas' => __( 'Separar Provincias por comas', 'pahoy' ),
+        'add_or_remove_items'        => __( 'Agregar o Remover Provincias', 'pahoy' ),
+        'choose_from_most_used'      => __( 'Escoger de las más usadas', 'pahoy' ),
+        'popular_items'              => __( 'Provincias Populares', 'pahoy' ),
+        'search_items'               => __( 'Buscar Provincias', 'pahoy' ),
+        'not_found'                  => __( 'No hay resultados', 'pahoy' ),
+        'no_terms'                   => __( 'No hay Provincias', 'pahoy' ),
+        'items_list'                 => __( 'Listado de Provincias', 'pahoy' ),
+        'items_list_navigation'      => __( 'Navegación del Listado de Provincias', 'pahoy' ),
+    );
+    $args_prov = array(
+        'labels'                     => $labels_prov,
+        'hierarchical'               => true,
+        'public'                     => true,
+        'show_ui'                    => true,
+        'show_admin_column'          => true,
+        'show_in_nav_menus'          => true,
+        'show_tagcloud'              => true,
+        'update_count_callback'      => '_update_post_term_count',
+        'show_in_rest'               => true,
+    );
+    register_taxonomy( 'provincias', array( 'post' ), $args_prov );
 
 }
 add_action( 'init', 'pahoy_custom_post_elements', 0 );
@@ -148,4 +183,3 @@ function update_image_upload($term_id, $tt_id) {
         update_term_meta($term_id, 'term_image', $_POST['locacion_img']);
     }
 }
-

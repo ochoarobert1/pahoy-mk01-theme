@@ -58,7 +58,7 @@
             <div class="top-header col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="container-fluid">
                     <div class="row align-items-center">
-                        <div class="top-header-left col-6">
+                        <div class="top-header-left col-xl-4 col-lg-4 col-md-6 col-sm-6 col-6">
                             <div class="top-header-item social-container">
                                 <?php $social_options = get_option('pahoy_social_settings'); ?>
                                 <?php if (isset($social_options['facebook'])) { ?>
@@ -92,11 +92,15 @@
                                 <?php } ?>
                             </div>
                             <div class="top-header-item email-container">
-                                <a href="mailto:<?php echo $header_options['email_address']; ?>" title="<?php _e('¡Envíanos un correo y le asistiremos en cualquier duda!', 'pahoy'); ?>" class="d-xl-inline-block d-lg-inline-block d-md-inline-block d-sm-none d-none"><?php echo $header_options['email_address']; ?></a>
-                                <a href="mailto:<?php echo $header_options['email_address']; ?>" title="<?php _e('¡Envíanos un correo y le asistiremos en cualquier duda!', 'pahoy'); ?>" class="d-xl-none d-lg-none d-md-none d-sm-inline-block d-inline-block"><i class="fa fa-envelope-o"></i></a>
+                                <a href="mailto:<?php echo $header_options['email_address']; ?>" title="<?php _e('¡Envíanos un correo y le asistiremos en cualquier duda!', 'pahoy'); ?>" class="d-xl-inline-block d-lg-inline-block d-md-none d-sm-none d-none"><?php echo $header_options['email_address']; ?></a>
+                                <a href="mailto:<?php echo $header_options['email_address']; ?>" title="<?php _e('¡Envíanos un correo y le asistiremos en cualquier duda!', 'pahoy'); ?>" class="d-xl-none d-lg-none d-md-inline-block d-sm-inline-block d-inline-block"><i class="fa fa-envelope-o"></i></a>
                             </div>
                         </div>
-                        <div class="top-header-right col-6">
+                        <div class="top-header-right col-xl-8 col-lg-8 col-md-6 col-sm-6 col-6">
+                            <div class="top-header-item extra-buttons-container">
+                                <a href="<?php echo home_url('/contacto'); ?>" title="<?php _e('¡Conviertete en Anfitrion!', 'pahoy'); ?>" class="d-xl-inline-block d-lg-inline-block d-md-inline-block d-sm-none d-none"><?php _e('¡Conviertete en Anfitrion!', 'pahoy'); ?></a>
+                                <a href="<?php echo home_url('/agregar-eventos'); ?>" title="<?php _e('Agregar Evento', 'pahoy'); ?>" class="d-xl-inline-block d-lg-inline-block d-md-inline-block d-sm-none d-none"><?php _e('Agregar Evento', 'pahoy'); ?></a>
+                            </div>
                             <div class="top-header-item number-container">
                                 <a href="tel:<?php echo $header_options['phone_number']; ?>" title="<?php _e('¡Llámenos y le asistiremos en cualquier duda!', 'pahoy'); ?>" class="d-xl-inline-block d-lg-inline-block d-md-inline-block d-sm-none d-none"><?php echo $header_options['formatted_phone_number']; ?></a>
                                 <a href="tel:<?php echo $header_options['phone_number']; ?>" title="<?php _e('¡Llámenos y le asistiremos en cualquier duda!', 'pahoy'); ?>" class="d-xl-none d-lg-none d-md-none d-sm-inline-block d-inline-block"><i class="fa fa-phone"></i></a>
@@ -106,16 +110,22 @@
                             <?php if ( $myaccount_page_id ) { $myaccount_page_url = get_permalink( $myaccount_page_id ); } ?>
                             <?php if (is_user_logged_in()) { ?>
                             <div class="top-header-item account-container">
-                                <a href="<?php echo $myaccount_page_url; ?>" title="<?php _e('Haz click aqui para iniciar sesión', 'pahoy'); ?>"><?php _e('Iniciar Sesión', 'pahoy'); ?></a>
+                                <a href="<?php echo $myaccount_page_url; ?>" title="<?php _e('Haz click aqui para ingresar a mi cuenta', 'pahoy'); ?>"><?php _e('Mi Cuenta', 'pahoy'); ?></a>
                             </div>
                             <?php } else { ?>
                             <div class="top-header-item account-container">
                                 <a href="<?php echo $myaccount_page_url; ?>" title="<?php _e('Haz click aqui para iniciar sesión', 'pahoy'); ?>"><?php _e('Iniciar Sesión', 'pahoy'); ?></a>
                             </div>
-                            <div class="top-header-item account-container">
+                            <div class="top-header-item account-container register-container">
                                 <a href="<?php echo $myaccount_page_url; ?>" title="<?php _e('Haz click aqui para registrarse', 'pahoy'); ?>"><?php _e('Regístrate', 'pahoy'); ?></a>
                             </div>
                             <?php } ?>
+                            <div class="top-header-item lang-container">
+                                <select name="lang" id="lang" class="form-control">
+                                    <option value="es">Español</option>
+                                    <option value="en">English</option>
+                                </select>
+                            </div>
 
                         </div>
                     </div>
@@ -173,7 +183,13 @@
                         </div>
                         <div class="navbar-mobile-container navbar-mobile-hidden">
                             <div class="navbar-mobile-container-wrapper">
-                               <a class="btn-menu-close"><i class="fa fa-chevron-right"></i></a>
+                                <a href="<?php echo home_url('/');?>" title="<?php echo get_bloginfo('name'); ?>">
+                                    <?php ?> <?php $custom_logo_id = get_theme_mod( 'custom_logo' ); ?>
+                                    <?php $image = wp_get_attachment_image_src( $custom_logo_id , 'full' ); ?>
+                                    <?php if (!empty($image)) { ?>
+                                    <img src="<?php echo $image[0];?>" alt="<?php echo get_bloginfo('name'); ?>" class="img-fluid img-logo" itemprop="photo" />
+                                    <?php } ?>
+                                </a>
                                 <?php
                                     wp_nav_menu( array(
                                         'theme_location'    => 'header_menu',
@@ -181,6 +197,22 @@
                                         'container'         => 'div'
                                     ) );
                                     ?>
+                                <div class="mobile-extra-buttons-container">
+                                    <a href="<?php echo home_url('/contacto'); ?>" title="<?php _e('¡Conviertete en Anfitrion!', 'pahoy'); ?>"><?php _e('¡Conviertete en Anfitrion!', 'pahoy'); ?></a>
+                                    <a href="<?php echo home_url('/agregar-eventos'); ?>" title="<?php _e('Agregar Evento', 'pahoy'); ?>"><?php _e('Agregar Evento', 'pahoy'); ?></a>
+
+                                    <a href="<?php echo $myaccount_page_url; ?>" title="<?php _e('Haz click aqui para iniciar sesión', 'pahoy'); ?>"><?php _e('Iniciar Sesión', 'pahoy'); ?></a>
+
+                                    <a href="<?php echo $myaccount_page_url; ?>" title="<?php _e('Haz click aqui para registrarse', 'pahoy'); ?>"><?php _e('Regístrate', 'pahoy'); ?></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="navbar-black-section navbar-black-section-hidden">
+                            <div class="btn-menu-close btn-menu-close-hidden">
+                                <div class="btn-menu-close-wrapper">
+                                    <span></span>
+                                    <span></span>
+                                </div>
                             </div>
                         </div>
                     </div>

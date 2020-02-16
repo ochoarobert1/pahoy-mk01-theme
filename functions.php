@@ -203,10 +203,10 @@ if ( function_exists('add_theme_support') ) {
 }
 if ( function_exists('add_image_size') ) {
     add_image_size('avatar', 100, 100, true);
-    add_image_size('blog_img', 276, 217, true);
+    add_image_size('blog_img', 490, 350, true);
     add_image_size('locacion_big', 870, 420, array('center', 'center'));
     add_image_size('locacion_square', 450, 450, array('center', 'center'));
-    add_image_size('single_img', 636, 297, true );
+    add_image_size('single_img', 1020, 500, true );
     add_image_size('custom_woocommerce_thumbnail', 300, 300, array('center', 'center'));
 }
 
@@ -226,3 +226,8 @@ function image_uploader_enqueue() {
     }
 }
 add_action( 'admin_enqueue_scripts', 'image_uploader_enqueue' );
+
+function tn_custom_excerpt_length( $length ) {
+    return 35;
+}
+add_filter( 'excerpt_length', 'tn_custom_excerpt_length', 999 );

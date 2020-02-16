@@ -1,3 +1,10 @@
+// compress: false, strictMath: true, javascriptEnabled: true
+
+/* --------------------------------------------------------------
+/* MAIN LESS MIXINS AND FUNCTIONS - LESSHAT
+-------------------------------------------------------------- */
+@import 'less/_lesshat.less';
+
 /* --------------------------------------------------------------
 MEDIAQUERIES LG/MD - LAYOUTS BIGGER THAN 992px
 -------------------------------------------------------------- */
@@ -17,11 +24,37 @@ MEDIAQUERIES LG/MD - LAYOUTS BIGGER THAN 992px
     }
 }
 
-@media (max-width: 1366px) {}
+@media (max-width: 1366px) {
+    .top-header .top-header-item {
+        font-size: 0.65rem;
+    }
 
-@media (max-width: 1280px) {}
+    .lang-container select {
+        font-size: 0.65rem;
+    }
+
+    .custom-news-section .custom-news-content h2 {
+        font-size: 0.9rem;
+        line-height: 1.4rem;
+    }
+}
+
+@media (max-width: 1280px) {
+    .mec-event-grid-clean img {
+        height: auto !important;
+    }
+
+    .custom-taxonomy-container .custom-taxonomy-item .custom-taxonomy-item-wrapper .custom-taxonomy-item-content h2 {
+        font-size: 1rem;
+    }
+}
 
 @media (max-width: 1170px) {
+
+    .top-header-right {
+        padding: 0;
+    }
+
     .navbar-menu {
         padding-left: 4rem;
     }
@@ -33,18 +66,187 @@ MEDIAQUERIES LG/MD - LAYOUTS BIGGER THAN 992px
     .the-header .navbar-logo .img-logo {
         max-width: 130px;
     }
+
+    .custom-media {
+        font-size: 0.8rem;
+        line-height: 1.2rem;
+    }
+
+    .custom-media h5 {
+        font-size: 1rem;
+        line-height: 1rem;
+    }
+
+    .custom-category-item {
+        padding: 0.2rem;
+    }
+
+    .custom-category-container .custom-category-item .custom-category-item-wrapper {
+        padding: 0;
+        min-height: 155px;
+    }
+
+    .custom-category-container .custom-category-item .custom-category-item-wrapper h3 {
+        font-size: 0.9rem;
+        line-height: 1.5rem;
+    }
+
+    .custom-product-wrapper .custom-product-wrapper-container {
+        padding-top: 0.5rem;
+    }
+
+    .custom-product-wrapper .custom-product-wrapper-container h2 {
+        font-size: 0.8rem;
+        line-height: 1.3rem;
+    }
+
+    .woocommerce ul.products li.product .product_type_simple {
+        font-size: 0.9rem;
+    }
+
+    .custom-testimonials-section .custom-testimonials-content .custom-testimonials-item .custom-testimonials-item-wrapper {
+        padding: 1.1rem 1.1rem;
+        font-size: 0.8rem;
+        line-height: 1.4rem;
+    }
+
+    .custom-testimonials-section .custom-testimonials-content .custom-testimonials-item .custom-testimonials-item-wrapper:after {
+        top: 5rem;
+    }
+
+    .mec-event-grid-clean .event-grid-t2-head .mec-event-month {
+        font-size: 1.1rem;
+    }
+
+    .custom-news-section .custom-news-content h2 {
+        font-size: 0.8rem;
+    }
+
+    .custom-category-container .custom-category-item .custom-category-item-wrapper {
+        min-height: 148px;
+    }
 }
 
-@media (max-width: 1024px) {}
+@media (max-width: 1024px) {
+    .top-header .top-header-item {
+        padding: 0rem 0.5rem;
+    }
+
+    .title-section h1:after {
+        left: 45.5%;
+    }
+}
 
 @media (max-width: 992px) {}
 
 /* --------------------------------------------------------------
 MEDIAQUERIES SM - LAYOUTS BIGGER THAN 768px
 -------------------------------------------------------------- */
-@media (max-width: 991px) {}
+@media (max-width: 991px) {
+    .extra-buttons-container {
+        display: none;
+    }
 
-@media (max-width: 800px) {}
+    .account-container {
+        display: none;
+    }
+
+    h4 {
+        font-size: 1.2rem;
+        line-height: 2.2rem;
+    }
+
+    .woocommerce .products ul,
+    .woocommerce ul.products {
+        .display(flex);
+        align-items: flex-start;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .woocommerce ul.products li.product,
+    .woocommerce-page ul.products li.product {
+        float: none !important;
+        margin: 1.4rem !important;
+        width: 29.33% !important;
+        margin-left: 0 !important;
+    }
+
+    .woocommerce ul.products li.last,
+    .woocommerce-page ul.products li.last {
+        margin-right: 1.4rem !important;
+    }
+
+    .mec-event-grid-clean .event-grid-t2-head .mec-event-month {
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .mec-event-grid-clean .mec-event-title {
+        font-size: 13px;
+    }
+
+    .custom-product-wrapper .custom-product-wrapper-image .btn-favorites {
+        bottom: 25px;
+        left: 10px;
+    }
+
+    .custom-media {
+        flex-flow: column;
+        text-align: center;
+
+        & img {
+            margin-bottom: 1rem;
+        }
+    }
+
+    .top-header .top-header-item {
+        font-size: 0.7rem;
+    }
+
+    .email-container a {
+        font-size: 1rem;
+    }
+
+    .mec-event-grid-clean .col-md-3 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .the-footer .footer-item .footer-sidebar .widget_nav_menu .menu .nav-link {
+        padding-left: 0;
+        font-size: 1rem;
+        padding: 0.4rem 0px;
+    }
+
+    .archive-item h2 {
+        font-size: 0.9rem;
+    }
+
+    .title-section h1:after {
+        left: 44%;
+    }
+}
+
+@media (max-width: 800px) {
+
+    .woocommerce .products ul,
+    .woocommerce ul.products {
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    .woocommerce ul.products li.product,
+    .woocommerce-page ul.products li.product {
+        margin: 1rem !important;
+        width: 30.9% !important;
+        margin-left: 0 !important;
+    }
+
+    .woocommerce ul.products li.product:nth-child(3) {
+        margin-right: 0 !important;
+    }
+}
 
 @media (max-width: 768px) {
 
@@ -59,28 +261,198 @@ MEDIAQUERIES SM - LAYOUTS BIGGER THAN 768px
     .top-header .top-header-right {
         padding: 0;
     }
+
+    h2 {
+        font-size: 2rem;
+        line-height: 2.8rem;
+    }
+
+    .custom-title-section h2 {
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+
+    .main-video-container {
+        background: #007D75;
+    }
+
+    .custom-category-container .custom-category-item .custom-category-item-wrapper {
+        min-height: 144px;
+    }
+
+    .custom-taxonomy-container .custom-taxonomy-item .custom-taxonomy-item-wrapper .custom-taxonomy-item-content .taxonomy-counter {
+        padding: 0.2rem 0.7rem;
+        font-size: 0.9rem;
+    }
+
 }
 
 /* --------------------------------------------------------------
 MEDIAQUERIES XS - LAYOUTS LESS THAN 768px
 -------------------------------------------------------------- */
-@media (max-width: 600px) {}
+@media (max-width: 600px) {
+    .custom-expert-local-section {
+        text-align: center;
+    }
+
+    .custom-expert-local-section a {
+        margin: 0 auto !important;
+        display: block !important;
+    }
+
+    .custom-media {
+        flex-flow: row;
+        text-align: left;
+    }
+
+    .custom-media img {
+        margin-bottom: 0;
+        max-width: 60px;
+    }
+
+    .woocommerce .products ul,
+    .woocommerce ul.products {
+        justify-content: flex-start;
+    }
+
+    .woocommerce ul.products li.product,
+    .woocommerce-page ul.products li.product {
+        margin: 2.5rem !important;
+        width: 45% !important;
+        margin-left: 0 !important;
+    }
+
+    .woocommerce ul.products[class*=columns-] li.product:nth-child(2n),
+    .woocommerce-page ul.products[class*=columns-] li.product:nth-child(2n) {
+        margin-right: 0 !important;
+    }
+
+    .woocommerce ul.products li.product:nth-child(3) {
+        margin-right: 2.5rem !important;
+    }
+
+    .page-container {
+        padding: 0;
+    }
+
+    .the-footer .footer-item .footer-sidebar {
+        text-align: center;
+    }
+
+    .archive-item h2 {
+        font-size: 0.8rem;
+        line-height: 1.2rem;
+    }
+
+    .title-section h1:after {
+        left: 42%;
+    }
+}
 
 @media (max-width: 533px) {
+
+    .woocommerce ul.products li.product,
+    .woocommerce-page ul.products li.product {
+        margin: 2rem !important;
+        width: 45% !important;
+        margin-left: 0 !important;
+    }
+
+    .woocommerce ul.products li.product:nth-child(3) {
+        margin-right: 2rem !important;
+    }
+
     .the-header {
         padding: 1rem 0rem;
     }
+
+    .custom-taxonomy-container .custom-taxonomy-item .custom-taxonomy-item-wrapper .custom-taxonomy-item-content h2 {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .custom-title-section h2 {
+        font-size: 1.2rem;
+    }
+
+    .izquierda {
+        text-align: center;
+    }
+
+    .izquierda h2:after {
+        bottom: -15px;
+        left: 39.5%;
+    }
+
+    .footer-copy h6 {
+        font-size: 0.7rem;
+    }
+
+    .mec-event-grid-clean .col-md-3 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .mec-container {
+        width: 100%;
+    }
+
+    .mec-event-grid-clean .mec-event-content {
+        padding: .5rem 0;
+        padding-bottom: 0;
+    }
+
+    .title-section h1:after {
+        left: 41%;
+    }
+
+
 }
 
 @media (max-width: 414px) {
-    .the-header .navbar-logo .img-logo {
-        max-width: 100px;
+    .title-section h1:after {
+        left: 39%;
     }
 }
 
-@media (max-width: 375px) {}
+@media (max-width: 375px) {
+    .mec-event-grid-clean .col-md-3 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
 
-@media (max-width: 360px) {}
+    .the-header .navbar-logo .img-logo {
+        max-width: 100px;
+    }
+
+    .woocommerce ul.products li.product,
+    .woocommerce-page ul.products li.product {
+        margin: 0rem !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-bottom: 2rem !important;
+    }
+
+    .woocommerce ul.products[class*=columns-] li.product:nth-child(2n),
+    .woocommerce-page ul.products[class*=columns-] li.product:nth-child(2n) {
+        margin-right: 0rem !important;
+        margin-left: 0rem !important;
+    }
+
+    .woocommerce ul.products li.product:nth-child(3) {
+        margin-right: 0rem !important;
+    }
+
+    .title-section h1:after {
+        left: 37.5%;
+    }
+}
+
+@media (max-width: 360px) {
+    .btn-menu-close {
+        left: 305px;
+    }
+}
 
 @media (max-width: 320px) {}
 
